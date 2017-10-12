@@ -1,0 +1,60 @@
+						ASSIGNMENT-13
+				
+Source Code:
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class DnsNettwork {
+	public static void main(String[] args) throws UnknownHostException {
+		Scanner in =new Scanner(System.in);
+		InetAddress objInet = InetAddress.getLocalHost();
+		
+		System.out.println("Hostname is : "+objInet);
+		
+		
+		System.out.print("\nEnter site domain name : ");
+		String siteName=in.next();
+		System.out.println("site address is(getByName) : "+InetAddress.getByName(siteName));
+		
+		
+		System.out.println("\nsite address is(getAllByName) : ");
+		InetAddress allAddressByName[]= InetAddress.getAllByName(siteName);
+		for(InetAddress a:allAddressByName)
+		{
+			System.out.println(a);
+		}
+		
+		
+		System.out.print("\nEnter IP Address : ");
+		String addr=in.next();
+		InetAddress ip=InetAddress.getByName(addr);
+		
+		
+		System.out.print("Get by Address : ");
+		
+		System.out.println(ip.getHostName());
+		in.close();
+	}
+}
+
+Output:
+
+Hostname is : chetan/127.0.1.1
+
+Enter site domain name : www.google.com
+site address is(getByName) : www.google.com/74.125.204.147
+
+site address is(getAllByName) : 
+www.google.com/74.125.204.147
+www.google.com/74.125.204.99
+www.google.com/74.125.204.103
+www.google.com/74.125.204.104
+www.google.com/74.125.204.105
+www.google.com/74.125.204.106
+www.google.com/2404:6800:4008:c04:0:0:0:6a
+
+Enter IP Address : 8.8.8.8
+Get by Address : google-public-dns-a.google.com
+
